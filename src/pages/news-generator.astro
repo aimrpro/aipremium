@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Breaking News Generator Gratis - Buat Berita Sendiri Secara Online</title>
+<meta property="og:description" content="Ciptakan breaking news dengan foto dan judul buatan sendiri. Mudah, cepat, dan gratis untuk membuat gambar berita yang terlihat profesional dan siap dibagikan ke media sosial.">
+    <meta property="og:title" content="Break Your Own News - The Breaking News Generator">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aimrferdy.com/news-generator/">
+    <meta property="og:image" content="https://aimrferdy.com/aimrferdy.png">
+    <meta property="og:site_name" content="Ai Mr Ferdy">
+    <meta property="og:description"
+          content="Ciptakan breaking news dengan foto dan judul buatan sendiri. Mudah, cepat, dan gratis untuk membuat gambar berita yang terlihat profesional dan siap dibagikan ke media sosial.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Signika:400,700" rel='stylesheet' type='text/css'>
+
+
+    <link type="text/css" href="style.css" rel="stylesheet" media="screen"/>
+    <link rel="shortcut icon" type="image/png" href=":https://aimrferdy.com/images/fav.webp"/>
+
+
+<style is:global>
+:root{
+  --bg:#f8fafc;
+  --panel:#ffffff;
+  --border:#e5e7eb;
+  --text:#111827;
+  --muted:#64748b;
+  --primary:#dc2626;
+  --primary-hover:#b91c1c;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+
+	
+	padding: 0;
+    margin: 0;
+    font-family: 'Signika', sans-serif;
+}
+
+.container{
+  max-width:1500px;
+  margin:auto;
+  padding:16px;
+}
+
+.editor,
+.grid{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:20px;
+}
+
+/* SIDEBAR */
+
+.sidebar,
+.intro{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  position:sticky;
+  top:16px;
+  height:fit-content;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:800;
+  line-height:1.2;
+  margin-bottom:8px;
+  color:#111;
+}
+
+.intro__text{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:16px;
+  line-height:1.5;
+}
+
+.build-form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.build-form__item,
+.form-group{
+  width:100%;
+}
+
+.build-form__label,
+.form-group label{
+  display:block;
+  font-size:12px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:var(--muted);
+  margin-bottom:5px;
+}
+
+input[type=text],
+textarea,
+select{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px 12px;
+  font-size:14px;
+  background:#fff;
+  outline:none;
+}
+
+input[type=text]:focus,
+textarea:focus,
+select:focus{
+  border-color:var(--primary);
+}
+
+textarea{
+  min-height:70px;
+  resize:vertical;
+}
+
+input[type=file]{
+  width:100%;
+  padding:8px;
+  border:1px dashed var(--border);
+  border-radius:8px;
+  background:#fff;
+  font-size:13px;
+}
+
+.select{
+  cursor:pointer;
+}
+
+.disclaimer{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+/* PREVIEW */
+
+.main,
+.preview{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  text-align:center;
+}
+
+.result-title{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.byon-canvas,
+.preview canvas{
+  width:100%;
+  height:auto;
+  display:block;
+  margin:auto;
+  border-radius:10px;
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.08);
+}
+
+/* PREVIEW SIZE */
+
+.byon-canvas[data-ratio="wide"]{
+  max-width:760px;
+}
+
+.byon-canvas[data-ratio="square"]{
+  max-width:580px;
+}
+
+.byon-canvas[data-ratio="portrait"]{
+  max-width:420px;
+}
+
+/* DOWNLOAD BUTTON */
+
+.share-row{
+  margin-top:16px;
+}
+
+.button,
+.download-btn{
+  width:100%;
+  max-width:420px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-decoration:none;
+  border:none;
+  border-radius:10px;
+  background:var(--primary);
+  color:#fff;
+  padding:14px 18px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.button:hover,
+.download-btn:hover{
+  background:var(--primary-hover);
+}
+
+.button__icon{
+  width:18px;
+  height:18px;
+  fill:currentColor;
+}
+
+/* FOOTER */
+
+footer{
+  margin-top:16px;
+  padding:16px;
+  border-radius:12px;
+  background:#111827;
+  color:#fff;
+  text-align:center;
+  font-size:14px;
+}
+
+footer a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+}
+
+footer img{
+  width:18px;
+  height:18px;
+  vertical-align:middle;
+}
+
+/* MOBILE */
+
+@media(max-width:960px){
+
+  .editor,
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar,
+  .intro{
+    position:static;
+  }
+
+  .byon-canvas[data-ratio="wide"]{
+    max-width:100%;
+  }
+
+  .byon-canvas[data-ratio="square"]{
+    max-width:100%;
+  }
+
+  .byon-canvas[data-ratio="portrait"]{
+    max-width:100%;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .container{
+    padding:10px;
+  }
+
+  .intro,
+  .main{
+    padding:12px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+}
+
+
+
+
+
+fieldset{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  margin:5px 0;
+}
+
+.build-form__radio{
+  display:inline-block;
+  margin:4px;
+}
+
+.build-form__radio input{
+  display:none;
+}
+
+.build-form__radio label{
+  display:block;
+  padding:10px 10px;
+  border:2px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:400;
+  transition:.2s;
+}
+
+.build-form__radio label:hover{
+  border-color:var(--primary);
+}
+
+.build-form__radio input:checked + label{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+}
+
+
+
+
+
+
+#imageLoader{
+  width:100%;
+  padding:8px;
+  border:2px dashed #dbe3ec;
+  border-radius:12px;
+  background:#fafafa;
+}
+
+#imageLoader::file-selector-button{
+  border:none;
+  background:var(--primary);
+  color:#fff;
+  padding:10px 16px;
+  border-radius:8px;
+  margin-right:12px;
+  cursor:pointer;
+}
+</style>
+
+
+</head>
+<body>
+<div class="container">
+
+    <section class="moneyplz">
+        <div class="moneyplz__ads">
+    
+        </div>
+    </section>
+
+    <div class="grid">
+        <section class="intro">
+            <div class="group">
+                <h1 class="logo">Breaking News Generator Gratis</h1>
+
+                <p class="intro__text">Breaking News Generator adalah alat online gratis untuk membuat berita viral dengan foto dan judul kustom. Desain tampilannya menyerupai siaran berita profesional sehingga cocok untuk konten media sosial, pemasaran digital, presentasi, dan berbagai kebutuhan kreatif lainnya.</p>
+            </div>
+
+            <div class="build-form">
+<input
+    type="text"
+    id="watermarkBox"
+    value="aimrferdy.com"
+    placeholder="Watermark">
+                <div class="build-form__item">
+                    <label class="build-form__label" for="textBox">Headline</label>
+                    <input id="textBox" type="text" placeholder="Tulis berita Anda di sini.../>
+                </div><!--
+             --><div class="build-form__item">
+                    <label class="build-form__label" for="tickerBox">Ticker</label>
+                    <input id="tickerBox" type="text" placeholder="Tulis pembaruan terkini di sini..."/>
+                </div>
+
+                <fieldset>
+                    <legend class="build-form__label">Image Size</legend>
+                    <div class="build-form__radio">
+                        <input type="radio" id="wide" name="imageRatio" value="wide" checked>
+                        <label for="wide">Persegi Panjang (Lanskap)</label>
+                    </div>
+                    <div class="build-form__radio">
+                        <input type="radio" id="square" name="imageRatio" value="square" >
+                        <label for="square">Persegi</label>
+                    </div>
+                    <div class="build-form__radio">
+                        <input type="radio" id="portrait" name="imageRatio" value="portrait" >
+                        <label for="portrait">Potret (Vertikal)</label>
+                    </div>
+
+                </fieldset>
+
+
+                <label class="build-form__label" for="imageLoader">Your Image</label>
+                <input type="file" id="imageLoader" name="imageLoader"/>
+
+                <p class="disclaimer">Aplikasi ini dibuat untuk hiburan, parodi, dan konten kreatif. Gunakan dengan bijak serta hindari membuat atau membagikan konten yang melanggar hukum, mengandung fitnah, menyesatkan, atau dapat merugikan orang lain. Berkaryalah secara kreatif dan tetap menghormati sesama.</p>
+            </div>
+
+        </section><!--
+        --><section class="main">
+            <canvas id="canvasOne" width="1280" height="720" class="byon-canvas">
+                Your browser does not support HTML5 Canvas.
+            </canvas>
+
+            <div class="share-row">
+            <a href="#" class="button button--yellow" id="btn-download" download="breaking-news.jpg">
+                <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Pro 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path d="M272 16c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 313.4L139.3 228.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l128 128c6.2 6.2 16.4 6.2 22.6 0l128-128c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L272 329.4 272 16zM140.1 320L64 320c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64l-76.1 0-32 32L448 352c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32L64 480c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l108.1 0-32-32zM432 416a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/></svg>
+                Download your image
+            </a>
+              
+
+            </div>
+
+        </section>
+    </div>
+    <section class="moneyplz">
+        <div class="moneyplz__ads">
+     
+        </div>
+    </section>
+    <p class="disclaimer">Tidak ada gambar yang disimpan di server kami. Semua gambar diproses langsung di browser Anda.</p>
+    <footer>
+        
+        <a href="https://aimrferdy.com/">Ai Mr Ferdy</a> made this.
+    </footer>
+</div>
+
+
+
+
+</body>
+</html>
